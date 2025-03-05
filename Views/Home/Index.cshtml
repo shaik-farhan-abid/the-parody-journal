@@ -1,0 +1,581 @@
+﻿@{
+    ViewData["Title"] = "The Parody Journal";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('current-date').textContent = new Date().toDateString();
+        });
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="weather-time">
+                    <span id="current-date"></span> | <span id="current-weather">Sunny, 25°C</span>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="#">The Parody Journal</a>
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <h2> @TempData["SuccessMessage"]</h2>
+                    }
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Sport</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Innovation</a></li>
+                        <li><a href="#">Culture</a></li>
+                        <li><a href="#">Earth</a></li>
+                        <li><a href="#">Contact</a></li>
+                        @* <li> *@
+                        @*     <a style="padding-left:7px; padding-right:7px;" href="@Url.Action("Login", "Account")" class="login">LOG IN</a> *@
+                        @* </li> *@
+                        <ul>
+                            @if (Context.Session.GetInt32("UserId") != null)
+                            {
+                                @* <li>Welcome, @Context.Session.GetString("UserName")!</li> *@
+                                <li><a style="padding-left:7px; padding-right:7px;" href = "#" onclick="confirmLogout()" class="login">LOG OUT</a></li>
+                            }
+                            else
+                            {
+                                <li><a style="padding-left:7px; padding-right:7px;" href="@Url.Action("Login", "Account")" class="login">LOG IN</a></li>
+                            }
+                        </ul>
+
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <script>
+        function confirmLogout() {
+            if (confirm("Are you sure you want to log out?")) {
+                window.location.href = "@Url.Action("Logout", "Account")";
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+    <section class="hero-section">
+        <div class="container">
+			<div class="hero-main">
+                <img class="hero-image" alt="Main News Image" src="~/images/hero3.jpg" asp-append-version="true" />
+
+                <div class="hero-overlay">
+                    <span class="category">Business</span>
+                    <span class="date">Jan 01, 2045</span>
+                    <h1 style="margin-top: 20px; padding-right: 20px; "> <a style="color: snow;" href="#">Lorem Ipsum Dolor Sit Amet Elit. Proin Vitae Porta Diam! Proin Vitae Porta Diam! Proin Vitae Porta .</a></h1>
+
+                </div>
+
+            </div>
+            <div class="hero-side">
+                <div class="hero-small">
+                    <img class="hero-image" alt="Main News Image" src="~/images/hero.jpg" asp-append-version="true" />
+                    <div class="overlay">
+                        <span class="category">Business</span>
+                        <span class="date">Jan 01, 2045</span>
+                        <h3><a href="#">Bitcoin At It's Peak! Invest now !!!!!</a></h3>
+                    </div>
+                </div>
+                <div class="hero-small">
+                    <img class="hero-image" alt="Main News Image" src="~/images/hero2.jpg" asp-append-version="true" />
+                    <div class="overlay">
+                        <span class="category">Business</span>
+                        <span class="date">Jan 01, 2045</span>
+                        <h3><a href="#">Lorem Ipsum Dolor Sit Amet Elit...</a></h3>
+                    </div>
+                </div>
+                <div class="hero-small">
+                    <img class="hero-image" alt="Main News Image" src="~/images/hero1.jpg" asp-append-version="true" />
+                    <div class="overlay">
+                        <span class="category">Business</span>
+                        <span class="date">Jan 01, 2045</span>
+                        <h3><a href="#">Lorem Ipsum Dolor Sit Amet Elit...</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breaking News -->
+        <div class="breaking-news">
+            <span class="breaking-label">Breaking News</span>
+            <marquee>LOREM IPSUM DOLOR SIT AMET ELIT. PROIN INTERDUM LACUS EGET ANTE TINCIDUNT, SED FAUCIBUS...</marquee>
+            <div class="nav-buttons">
+                <button class="prev">&lt;</button>
+                <button class="next">&gt;</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="news-section">
+        <div class="news-container">
+            <div class="main-news">
+                <div class="main-1">
+                    <h2 style="padding-bottom:5px;">Russia frees US national held on drug charges</h2>
+                    <img src="~/images/news (3).jpg" alt="Airport scene">
+                    <p>Kalob Byers was detained at an airport in Moscow after officials allegedly found cannabis-laced gummies in his baggage.</p>
+                </div>
+                <div class="main-1">
+                    <h2 style="padding-bottom:10px;">Russia frees US national held on drug charges</h2>
+                    <img src="~/images/news (2).jpg" alt="Airport scene">
+                    <p>Kalob Byers was detained at an airport in Moscow after officials allegedly found cannabis-laced gummies in his baggage.</p>
+                </div>
+            </div>
+            <div style="grid-column-gap:75px;" class="img-news">
+                <div class="side-news">
+                    <h2 style="margin-right:2rem; margin-top:1rem; margin-bottom:1rem;">Argentina's President Milei denies crypto fraud allegations</h2>
+                    <img src="~/images/news (2).jpg" alt="Milei">
+                    <p style="padding-top:.5rem; padding-bottom:.5rem;">Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+                </div>
+                <div style="padding-right:20px" class="side-news">
+                    <h2 style="margin-right:2rem; margin-top:1rem; margin-bottom:1rem;">Argentina's President Milei denies crypto fraud allegations</h2>
+                    <img src="~/images/news (2).jpg" alt="Milei">
+                    <p style="padding-top:.5rem; padding-bottom:.5rem;">Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+                </div>
+                <div style="padding-right:20px" class="side-news">
+                    <h2 style ="margin-right:2rem; margin-top:1rem; margin-bottom:1rem;">Argentina's President Milei denies crypto fraud allegations</h2>
+                    <img src="~/images/news (2).jpg" alt="Milei">
+                    <p style="padding-top:.5rem; padding-bottom:.5rem;">Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+                </div>
+
+            </div>
+
+            <div class="ad-section-1">
+                <div class="ad-div-1">
+                    <img style="height:400px;" src="~/images/ad (2).png" alt="">
+
+                </div>
+                <div class="ad-div-1">
+                    <img style="height:400px;" src="~/images/ad (1).png" alt="">
+
+                </div>
+            </div>
+        </div>
+        <div class="news-grid">
+            <h2 class="trend" style="background-color: rgb(57, 34, 34); padding: 1rem; color: snow;">Trends You Might Find Interesting Now!</h2>
+            <div class="news-item">
+                <img src="~/images/news (3).jpg" alt="Meghan Markle">
+                <h3>Meghan puts new label on jams and lifestyle range</h3>
+                <p>The Duchess of Sussex reveals "As Ever" will be the new name for her home and cooking range.</p>
+            </div>
+            <div class="news-item">
+                <img src="~/images/news (4).jpg" alt="Eric Adams">
+                <h3>New York governor weighs Eric Adams' fate after scandals</h3>
+                <p>Adams is accused of striking a deal with the Trump administration to get his criminal case dropped in exchange for help on immigration action.</p>
+            </div>
+            <div class="news-item">
+                <img src="~/images/news (5).jpg" alt="Detroit flood">
+                <h3>Watch: Burst pipe submerges parts of Detroit in icy water</h3>
+                <p>The burst water main, built in 1930, filled streets and yards as temperatures in Detroit reached -17C (1.4F).</p>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <section class="news-section-missed">
+        <h1 class="section-title">In Case You Missed It!</h1>
+        <div class="news-container-missed">
+            <!-- Main Feature News -->
+            <div class="featured-news">
+                <img src="~/images/missed.jpg" alt="Featured News">
+                <p class="image-credit">Alexis Huguet/AFP/Getty Images</p>
+                <h3 class="news-title">Fighting in Africa’s mineral-rich DRC killed over 3,000 in less than 2 weeks. Here’s how your phone plays a part</h3>
+            </div>
+
+            <!-- Sidebar News List -->
+            <div class="news-sidebar">
+                <ul class="news-list">
+                    <li><a href="#">Who is Friedrich Merz, Merkel’s rival and German election frontrunner?</a></li>
+                    <li><a href="#">As Georgia slides into authoritarianism, protesters vow to keep fighting Russian pivot</a></li>
+                    <li><a href="#">Suspect in Brazil Christmas cake poisonings found dead</a></li>
+                    <li><a href="#">Vance turns on European allies in blistering speech that downplayed threats from Russia and China</a></li>
+                    <li><a href="#">The secret to great isn’t really a secret. It’s asking the right question, 81-year-old professor says</a></li>
+                    <li><a href="#">How much coffee is too much, according to a doctor</a></li>
+                    <li><a href="#">China hopes new fleet of ‘silver trains’ will encourage its elderly to travel, and spend, more</a></li>
+                    <li><a href="#">No doctors for sick children. This is the reality of Trump’s aid freeze in remote northern Thailand</a></li>
+                    <li><a href="#">As Georgia slides into authoritarianism, protesters vow to keep fighting Russian pivot</a></li>
+                    <li><a href="#">Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="grid-news">
+        <div class="img-news">
+            <div class="side-news">
+                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
+                <img src="~/images/ai (1).jpg" alt="Milei">
+                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+            </div>
+            <div class="side-news">
+                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
+                <img src="~/images/ai (2).jpg" alt="Milei">
+                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+            </div>
+            <div class="side-news">
+                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
+                <img src="~/images/ai (3).jpg" alt="Milei">
+                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+            </div>
+            <div class="side-news">
+                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
+                <img src="~/images/ai (4).jpg" alt="Milei">
+                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+            </div>
+
+
+            <div class="side-news">
+                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
+                <img src="~/images/ai (5).jpg" alt="Milei">
+                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+            </div>
+            <div class="side-news">
+                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
+                <img src="~/images/ai (6).jpg" alt="Milei">
+                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+            </div>
+            <div class="side-news">
+                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
+                <img src="~/images/ai (7).jpg" alt="Milei">
+                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+            </div>
+            <div class="side-news">
+                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
+                <img src="~/images/ai (8).jpg" alt="Milei">
+                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <h1 class="game-h1">
+        Play Games:
+    </h1>
+    <section class="game-section">
+
+
+
+        <div id="canvas">
+
+            <div class="restart">
+                <i class="fa fa-repeat"></i>
+            </div>
+            <div class="curtain"></div>
+
+            <ul id="score-panel">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li>
+                    <h1>
+                        <span id="moves-num">0</span>
+                        <span> Moves</span>
+                    </h1>
+                </li>
+            </ul>
+
+            <ul id="tower-1" class="tower"></ul>
+            <ul id="tower-2" class="tower"></ul>
+            <ul id="tower-3" class="tower"></ul>
+        </div>
+
+        <div class="ads-section-2">
+            <div class="img-ad-x">
+                <img src="~/images/ad (3).png" alt="">
+            </div>
+            <div class="img-ad-x">
+                <img src="~/images/ad (4).png" alt="">
+
+            </div>
+            <div class="img-ad-x">
+                <img src="~/images/ad (5).png" alt="">
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="must-watch-section">
+        <div class="section-header">
+            <h2>Must watch</h2>
+            <div class="nav-buttons">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+        <div class="news-carousel">
+
+            <div class="news-card">
+                <div class="thumbnail">
+
+                    <iframe width="250" height="140" src="https://www.youtube.com/embed/_ADruSxLVf4?si=VpScOlHkYqbbQOSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3>Watch: Toronto plane crash footage analysed by aviation experts</h3>
+                <p>Two aviation experts have analysed footage of the plane crash and explored what might have caused it.</p>
+                <span class="meta">14 hrs ago | US & Canada</span>
+            </div>
+            <div class="news-card">
+                <div class="thumbnail">
+
+                    <iframe width="250" height="140" src="https://www.youtube.com/embed/_ADruSxLVf4?si=VpScOlHkYqbbQOSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3>Watch: Toronto plane crash footage analysed by aviation experts</h3>
+                <p>Two aviation experts have analysed footage of the plane crash and explored what might have caused it.</p>
+                <span class="meta">14 hrs ago | US & Canada</span>
+            </div>
+            <div class="news-card">
+                <div class="thumbnail">
+
+                    <iframe width="250" height="140" src="https://www.youtube.com/embed/_ADruSxLVf4?si=VpScOlHkYqbbQOSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3>Watch: Toronto plane crash footage analysed by aviation experts</h3>
+                <p>Two aviation experts have analysed footage of the plane crash and explored what might have caused it.</p>
+                <span class="meta">14 hrs ago | US & Canada</span>
+            </div>
+            <div class="news-card">
+                <div class="thumbnail">
+
+                    <iframe width="250" height="140" src="https://www.youtube.com/embed/_ADruSxLVf4?si=VpScOlHkYqbbQOSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3>Watch: Toronto plane crash footage analysed by aviation experts</h3>
+                <p>Two aviation experts have analysed footage of the plane crash and explored what might have caused it.</p>
+                <span class="meta">14 hrs ago | US & Canada</span>
+            </div>
+            <div class="news-card">
+                <div class="thumbnail">
+
+                    <iframe width="250" height="140" src="https://www.youtube.com/embed/_ADruSxLVf4?si=VpScOlHkYqbbQOSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3>Watch: Toronto plane crash footage analysed by aviation experts</h3>
+                <p>Two aviation experts have analysed footage of the plane crash and explored what might have caused it.</p>
+                <span class="meta">14 hrs ago | US & Canada</span>
+            </div>
+
+            <div class="news-card">
+                <div class="thumbnail">
+
+                    <iframe width="250" height="140" src="https://www.youtube.com/embed/_ADruSxLVf4?si=VpScOlHkYqbbQOSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3>Watch: Toronto plane crash footage analysed by aviation experts</h3>
+                <p>Two aviation experts have analysed footage of the plane crash and explored what might have caused it.</p>
+                <span class="meta">14 hrs ago | US & Canada</span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="newsletter-container">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Stay updated with our latest news and offers</p>
+        <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="newsletter-button">Subscribe</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h1>The Parody Journal</h1>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Follow us:</p>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 The Parody Journal. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            var holding = [],
+                moves = 0,
+                disksNum = 7,
+                minMoves = 127,
+                $canvas = document.getElementById('canvas'),
+                $restart = document.querySelector('.restart'),
+                $towers = document.querySelectorAll('.tower'),
+                $movesCount = document.getElementById('moves-num'),
+                $ratingStars = document.querySelectorAll('#score-panel i');
+
+            function setRating(moves) {
+                if (moves === 127) {
+                    $ratingStars[2].classList.replace('fa-star', 'fa-star-o');
+                } else if (moves >= 128 && moves <= 228) {
+                    $ratingStars[1].classList.replace('fa-star', 'fa-star-o');
+                } else if (moves >= 229) {
+                    $ratingStars[0].classList.replace('fa-star', 'fa-star-o');
+                }
+            }
+
+            function initGame() {
+                $towers.forEach(tower => tower.innerHTML = '');
+                moves = 0;
+                $movesCount.innerText = 0;
+                holding = [];
+                for (var i = 1; i <= disksNum; i++) {
+                    let disk = document.createElement("li");
+                    disk.className = `disk disk-${i}`;
+                    disk.dataset.value = i;
+                    $towers[0].prepend(disk);
+                }
+                $ratingStars.forEach(star => star.classList.replace('fa-star-o', 'fa-star'));
+            }
+
+            function countMove() {
+                moves++;
+                $movesCount.innerText = moves;
+                setRating(moves);
+            }
+
+            function towerClick(event) {
+                let tower = event.currentTarget;
+                let topDisk = tower.lastElementChild;
+                let holdingDisk = document.querySelector('.hold');
+
+                if (holdingDisk) {
+                    holdingDisk.classList.remove('hold');
+                    tower.appendChild(holdingDisk);
+                    countMove();
+                } else if (topDisk) {
+                    topDisk.classList.add('hold');
+                }
+            }
+
+            $towers.forEach(tower => tower.addEventListener("click", towerClick));
+            $restart.addEventListener("click", initGame);
+
+            initGame();
+        });
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year The Parody Journal. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

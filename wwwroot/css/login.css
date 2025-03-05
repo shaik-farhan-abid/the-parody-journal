@@ -1,0 +1,117 @@
+﻿/* General Page Styling */
+body {
+    background: #0d1117; /* Deep dark background */
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Login Container */
+.login-container {
+    background: #161b22; /* Slightly lighter dark shade */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Logo */
+.brand-logo img {
+    max-width: 120px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 2px 5px rgba(255, 255, 255, 0.2));
+}
+
+/* Headings */
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #a1a1a1;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+    .input-group label {
+        font-size: 14px;
+        color: #c9d1d9;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        background: #21262d;
+        color: #ffffff;
+        font-size: 14px;
+    }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #58a6ff;
+            box-shadow: 0 0 5px rgba(88, 166, 255, 0.5);
+        }
+
+/* Login Button */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #0066ff, #0044cc);
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+    .btn-login:hover {
+        background: linear-gradient(135deg, #0044cc, #0033aa);
+        box-shadow: 0 4px 10px rgba(0, 102, 255, 0.3);
+    }
+
+/* Links */
+.links {
+    margin-top: 15px;
+}
+
+    .links a {
+        color: #58a6ff;
+        font-size: 14px;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+/* Error Message */
+.alert {
+    background: #ff3333;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}

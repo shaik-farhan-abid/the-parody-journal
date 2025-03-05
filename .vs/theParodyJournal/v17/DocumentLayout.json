@@ -1,0 +1,239 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|i:\\tpj\\theparodyjournal cp1 interface\\theparodyjournal\\views\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35589D15-078F-4DBC-AC79-6DC27A16343C}|theParodyJournal.csproj|solutionrelative:views\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-19T20:54:10.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-19T20:53:56.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-19T20:54:08.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-19T20:54:06.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Error.cshtml",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-19T20:54:03.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-19T20:54:01.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T09:19:24.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-04T04:23:46.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "login.cshtml",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Account\\login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\login.cshtml",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Account\\login.cshtml",
+              "RelativeToolTip": "Views\\Account\\login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-04T09:16:23.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T09:18:44.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "login.cshtml.cs",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Account\\login.cshtml.cs",
+              "RelativeDocumentMoniker": "Views\\Account\\login.cshtml.cs",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\Views\\Account\\login.cshtml.cs",
+              "RelativeToolTip": "Views\\Account\\login.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T09:20:39.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "login.css",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\wwwroot\\css\\login.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\login.css",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\wwwroot\\css\\login.css",
+              "RelativeToolTip": "wwwroot\\css\\login.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-04T09:17:23.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "site.css",
+              "DocumentMoniker": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "I:\\TPJ\\theParodyJournal CP1 Interface\\theParodyJournal\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AgIAAHABAAAAAAAAAADwv3UBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-04T04:31:47.946Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
