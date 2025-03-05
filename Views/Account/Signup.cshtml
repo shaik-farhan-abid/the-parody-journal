@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Sign Up | Parody Journal";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Parody Journal</title>
+    <link rel="stylesheet" href="~/css/login.css">
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="brand-logo">
+                <h1>The Parody Journal</h1>
+            </div>
+            <h2>Create Your Account</h2>
+            <p class="subtitle">Join the satire revolution!</p>
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <p style="color: red;">@TempData["ErrorMessage"]</p>
+            }
+
+            <form method="post" onsubmit="return validateForm()">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+
+                <button type="submit" class="btn-login">Sign Up</button>
+
+                <div class="links">
+                    <a href="@Url.Action("Login", "Account")">Already have an account? Log In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
