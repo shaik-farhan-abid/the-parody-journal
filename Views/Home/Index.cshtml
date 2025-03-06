@@ -1,6 +1,17 @@
-﻿@{
+﻿@model List<NewsAPI.Models.Article>
+
+@{
     ViewData["Title"] = "The Parody Journal";
+    var selectedCategory = Context.Request.Query["category"];
+
 }
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">
+        Unable to load news at this time. Please try again later.
+    </div>
+}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,18 +19,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
-
     <link rel="stylesheet" href="~/css/site.css" />
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById('current-date').textContent = new Date().toDateString();
+        document.getElementById('current-date').textContent = new Date().toDateString();
         });
     </script>
 </head>
 <body>
-
+    <!-- Header section -->
     <header>
+
         <div class="top-bar">
             <div class="container">
                 <div class="weather-time">
@@ -44,14 +54,15 @@
                 </div>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Sport</a></li>
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">Innovation</a></li>
-                        <li><a href="#">Culture</a></li>
-                        <li><a href="#">Earth</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="@Url.Action("Index", "Home", new { category = "Home" })">Home</a></li>
+                        <li><a href="@Url.Action("Index", "Home", new { category = "GOOD NEWS" })">Business</a></li>
+                        @* <li><a href="@Url.Action("Index", "Home", new { category = "SPORTS" })">Sport</a></li> *@
+                        <li><a href="@Url.Action("Index", "Home", new { category = "TECH" })">Tech</a></li>
+                        <li><a href="@Url.Action("Index", "Home", new { category = "ENTERTAINMENT" })">Entertainment</a></li>
+                        <li><a href="@Url.Action("Index", "Home", new { category = "HEALTHY LIVING" })">Health</a></li>
+                        <li><a href="@Url.Action("Index", "Home", new { category = "SCIENCE" })">Sceince</a></li>
+                        @* <li><a href="@Url.Action("Index", "Home", new { category = "" })">Contact</a></li> *@
+
                         @* <li> *@
                         @*     <a style="padding-left:7px; padding-right:7px;" href="@Url.Action("Login", "Account")" class="login">LOG IN</a> *@
                         @* </li> *@
@@ -59,7 +70,7 @@
                             @if (Context.Session.GetInt32("UserId") != null)
                             {
                                 @* <li>Welcome, @Context.Session.GetString("UserName")!</li> *@
-                                <li><a style="padding-left:7px; padding-right:7px;" href = "#" onclick="confirmLogout()" class="login">LOG OUT</a></li>
+                                <li><a style="padding-left:7px; padding-right:7px;" href="#" onclick="confirmLogout()" class="login">LOG OUT</a></li>
                             }
                             else
                             {
@@ -73,68 +84,91 @@
                 </nav>
             </div>
         </div>
+
     </header>
-    <script>
-        function confirmLogout() {
-            if (confirm("Are you sure you want to log out?")) {
-                window.location.href = "@Url.Action("Logout", "Account")";
-            }
-        }
-    </script>
-
-
-
-
-
-
-
-
 
     <section class="hero-section">
         <div class="container">
-			<div class="hero-main">
-                <img class="hero-image" alt="Main News Image" src="~/images/hero3.jpg" asp-append-version="true" />
+            @if (Model != null && Model.Any())
+            {
+                <div class="hero-main">
+                    @if (selectedCategory == "Home")
+                    {
+                        <div class="dropup">
+                            <button class="dropbtn">
+                                ...
+                            </button>
+                            <div class="dropup-content">
+                                <a href="#" onclick="resetArticleScore('@Model[0].Url', this)">Don't show me this</a>
+                            </div>
+                        </div>
+                    }
+                    <img class="hero-image" alt="Main News Image" src="@(Model[0].UrlToImage ?? "/images/hero3.jpg")" onerror="this.src='/images/hero3.jpg'" asp-append-version="true" />
+                    <div class="hero-overlay">
+                        <span class="category">News</span>
+                        <span class="date">@DateTime.Now.ToString("MMM dd, yyyy")</span>
+                        <h1 style="margin-top: 20px; padding-right: 20px; ">
+                            @if (!string.IsNullOrEmpty(Model[0].Url))
+                            {
 
-                <div class="hero-overlay">
-                    <span class="category">Business</span>
-                    <span class="date">Jan 01, 2045</span>
-                    <h1 style="margin-top: 20px; padding-right: 20px; "> <a style="color: snow;" href="#">Lorem Ipsum Dolor Sit Amet Elit. Proin Vitae Porta Diam! Proin Vitae Porta Diam! Proin Vitae Porta .</a></h1>
 
-                </div>
+                                <a style="color: snow;" href="@Url.Action("TrackArticleClick", "Home", new {
+                        userId = ViewBag.UserId,
 
-            </div>
-            <div class="hero-side">
-                <div class="hero-small">
-                    <img class="hero-image" alt="Main News Image" src="~/images/hero.jpg" asp-append-version="true" />
-                    <div class="overlay">
-                        <span class="category">Business</span>
-                        <span class="date">Jan 01, 2045</span>
-                        <h3><a href="#">Bitcoin At It's Peak! Invest now !!!!!</a></h3>
+                        articleUrl = Model[0].Url
+                    })" target="_blank">
+                                    @Model[0].Title
+                                </a>
+                            }
+                            else
+                            {
+                                <span style="color: snow;">@Model[0].Title</span>
+                            }
+                        </h1>
                     </div>
                 </div>
-                <div class="hero-small">
-                    <img class="hero-image" alt="Main News Image" src="~/images/hero2.jpg" asp-append-version="true" />
-                    <div class="overlay">
-                        <span class="category">Business</span>
-                        <span class="date">Jan 01, 2045</span>
-                        <h3><a href="#">Lorem Ipsum Dolor Sit Amet Elit...</a></h3>
-                    </div>
+                <div class="hero-side">
+                    @for (int i = 1; i < 4 && i < Model.Count; i++)
+                    {
+                        @if (selectedCategory == "Home")
+                        {
+                            <div class="dropup">
+                                <button class="dropbtn">
+                                    ...
+                                </button>
+                                <div class="dropup-content">
+                                    <a href="#" onclick="resetArticleScore('@Model[i].Url', this)">Don't show me this</a>
+                                </div>
+                            </div>
+                        }
+                        <div class="hero-small">
+                            <img class="hero-image" alt="News Image"
+                                 src="@(Model[i].UrlToImage ?? "/images/hero.jpg")"
+                                 onerror="this.src='/images/hero.jpg'" />
+                            <div class="overlay">
+                                <span class="category">News</span>
+                                <span class="date">
+                                    @(Model[i].PublishedAt?.ToString("MMM dd, yyyy") ?? "Unknown Date")
+                                </span>
+                                <h3>
+                                    <a href="@Url.Action("TrackArticleClick", "Home", new {
+                        userId = ViewBag.UserId,
+
+                        articleUrl = Model[i].Url
+                    })" target="_blank">
+                                        @Model[i].Title
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                    }
                 </div>
-                <div class="hero-small">
-                    <img class="hero-image" alt="Main News Image" src="~/images/hero1.jpg" asp-append-version="true" />
-                    <div class="overlay">
-                        <span class="category">Business</span>
-                        <span class="date">Jan 01, 2045</span>
-                        <h3><a href="#">Lorem Ipsum Dolor Sit Amet Elit...</a></h3>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
 
-        <!-- Breaking News -->
         <div class="breaking-news">
             <span class="breaking-label">Breaking News</span>
-            <marquee>LOREM IPSUM DOLOR SIT AMET ELIT. PROIN INTERDUM LACUS EGET ANTE TINCIDUNT, SED FAUCIBUS...</marquee>
+            <marquee>@(Model?.FirstOrDefault()?.Description ?? "Loading news...")</marquee>
             <div class="nav-buttons">
                 <button class="prev">&lt;</button>
                 <button class="next">&gt;</button>
@@ -144,44 +178,118 @@
 
 
 
+    <!-- Pass the user ID to a hidden field (Fix for ViewBag.UserId issue) -->
+    <input type="hidden" id="userId" value="@ViewBag.UserId" />
 
+    <script>
+        function resetArticleScore(articleUrl, element) {
+        // Get user ID from the hidden input field
+        var userId = document.getElementById("userId").value;
+
+        fetch('/Home/DecreaseArticleScore', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId: userId, articleUrl: articleUrl }) // Send JSON
+        })
+        .then(response => {
+        if (response.ok) {
+        console.log("Score reset successfully");
+        // Remove the article from the UI if it exists
+        var newsItem = element.closest('.news-item');
+        if (newsItem) {
+        newsItem.remove();
+        }
+        } else {
+        console.error("Failed to reset score");
+        }
+        })
+        .catch(error => console.error("Error:", error));
+        }
+    </script>
 
 
 
     <section class="news-section">
         <div class="news-container">
             <div class="main-news">
-                <div class="main-1">
-                    <h2 style="padding-bottom:5px;">Russia frees US national held on drug charges</h2>
-                    <img src="~/images/news (3).jpg" alt="Airport scene">
-                    <p>Kalob Byers was detained at an airport in Moscow after officials allegedly found cannabis-laced gummies in his baggage.</p>
-                </div>
-                <div class="main-1">
-                    <h2 style="padding-bottom:10px;">Russia frees US national held on drug charges</h2>
-                    <img src="~/images/news (2).jpg" alt="Airport scene">
-                    <p>Kalob Byers was detained at an airport in Moscow after officials allegedly found cannabis-laced gummies in his baggage.</p>
-                </div>
+                @for (int i = 4; i < 6 && i < Model.Count; i++)
+                {
+
+
+
+                    <div class="main-1">
+
+                        <h2 style="padding-bottom:5px;">
+                            @if (selectedCategory == "Home")
+                            {
+                                <div class="dropup">
+                                    <button class="dropbtn">
+                                        ...
+                                    </button>
+                                    <div class="dropup-content">
+                                        <a href="#" onclick="resetArticleScore('@Model[i].Url', this)">Don't show me this</a>
+                                    </div>
+                                </div>
+                            }
+                            @if (!string.IsNullOrEmpty(Model[i].Url))
+                            {
+                                <a href="@Url.Action("TrackArticleClick", "Home", new {
+                        userId = ViewBag.UserId,
+
+                        articleUrl = Model[i].Url
+                    })" target="_blank">
+                                    @Model[i].Title
+                                </a>
+                            }
+                            else
+                            {
+                                @Model[i].Title
+                            }
+                        </h2>
+                        <img src="@(Model[i].UrlToImage ?? "/images/news (3).jpg")"
+                             onerror="this.src='/images/news (3).jpg'" alt="News Image">
+                        <p>@Model[i].Description</p>
+                    </div>
+                }
             </div>
             <div style="grid-column-gap:75px;" class="img-news">
-                <div class="side-news">
-                    <h2 style="margin-right:2rem; margin-top:1rem; margin-bottom:1rem;">Argentina's President Milei denies crypto fraud allegations</h2>
-                    <img src="~/images/news (2).jpg" alt="Milei">
-                    <p style="padding-top:.5rem; padding-bottom:.5rem;">Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-                </div>
-                <div style="padding-right:20px" class="side-news">
-                    <h2 style="margin-right:2rem; margin-top:1rem; margin-bottom:1rem;">Argentina's President Milei denies crypto fraud allegations</h2>
-                    <img src="~/images/news (2).jpg" alt="Milei">
-                    <p style="padding-top:.5rem; padding-bottom:.5rem;">Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-                </div>
-                <div style="padding-right:20px" class="side-news">
-                    <h2 style ="margin-right:2rem; margin-top:1rem; margin-bottom:1rem;">Argentina's President Milei denies crypto fraud allegations</h2>
-                    <img src="~/images/news (2).jpg" alt="Milei">
-                    <p style="padding-top:.5rem; padding-bottom:.5rem;">Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-                </div>
+                @for (int i = 6; i < 9 && i < Model.Count; i++)
+                {
 
+                    <div class="side-news">
+                        <h2 style="margin-right:2rem; margin-top:1rem; margin-bottom:1rem;">
+                            @if (selectedCategory == "Home")
+                            {
+                                <div class="dropup">
+                                    <button class="dropbtn">
+                                        ...
+                                    </button>
+                                    <div class="dropup-content">
+                                        <a href="#" onclick="resetArticleScore('@Model[i].Url', this)">Don't show me this</a>
+                                    </div>
+                                </div>
+                            }
+
+                            <a href="@Url.Action("TrackArticleClick", "Home", new {
+                        userId = ViewBag.UserId,
+
+                        articleUrl = Model[i].Url
+                    })" target="_blank">
+                                @Model[i].Title
+                            </a>
+                        </h2>
+                        <img src="@(Model[i].UrlToImage ?? "/images/news (2).jpg")"
+                             alt="News Image" onerror="this.src='/images/news (2).jpg'">
+                        <p style="padding-top:.5rem; padding-bottom:.5rem;">@Model[i].Description</p>
+                    </div>
+                }
             </div>
 
+
             <div class="ad-section-1">
+
                 <div class="ad-div-1">
                     <img style="height:400px;" src="~/images/ad (2).png" alt="">
 
@@ -191,128 +299,114 @@
 
                 </div>
             </div>
+
+
         </div>
+
         <div class="news-grid">
-            <h2 class="trend" style="background-color: rgb(57, 34, 34); padding: 1rem; color: snow;">Trends You Might Find Interesting Now!</h2>
-            <div class="news-item">
-                <img src="~/images/news (3).jpg" alt="Meghan Markle">
-                <h3>Meghan puts new label on jams and lifestyle range</h3>
-                <p>The Duchess of Sussex reveals "As Ever" will be the new name for her home and cooking range.</p>
-            </div>
-            <div class="news-item">
-                <img src="~/images/news (4).jpg" alt="Eric Adams">
-                <h3>New York governor weighs Eric Adams' fate after scandals</h3>
-                <p>Adams is accused of striking a deal with the Trump administration to get his criminal case dropped in exchange for help on immigration action.</p>
-            </div>
-            <div class="news-item">
-                <img src="~/images/news (5).jpg" alt="Detroit flood">
-                <h3>Watch: Burst pipe submerges parts of Detroit in icy water</h3>
-                <p>The burst water main, built in 1930, filled streets and yards as temperatures in Detroit reached -17C (1.4F).</p>
-            </div>
+            <h2 class="trend" style="background-color: rgb(57, 34, 34); padding: 1rem; color: snow;">
+                Trends You Might Find Interesting Now!
+            </h2>
+            @for (int i = 10; i < 13 && i < Model.Count; i++)
+            {
+                @if (selectedCategory == "Home")
+                {
+                    <div class="dropup">
+                        <button class="dropbtn">
+                            ...
+                        </button>
+                        <div class="dropup-content">
+                            <a href="#" onclick="resetArticleScore('@Model[i].Url', this)">Don't show me this</a>
+                        </div>
+                    </div>
+                }
+
+
+                <div class="news-item">
+                    <img src="@(Model[i].UrlToImage ?? "/images/news (3).jpg")"
+                         alt="@Model[i].Title" onerror="this.src='/images/news (3).jpg'">
+                    <h3>
+                        <a href="@Url.Action("TrackArticleClick", "Home", new {
+                        userId = ViewBag.UserId,
+
+                        articleUrl = Model[i].Url
+                    })" target="_blank">
+                            @Model[i].Title
+                        </a>
+                    </h3>
+                    <p>@Model[i].Description</p>
+                </div>
+            }
         </div>
-
     </section>
-
-
 
     <section class="news-section-missed">
         <h1 class="section-title">In Case You Missed It!</h1>
         <div class="news-container-missed">
-            <!-- Main Feature News -->
-            <div class="featured-news">
-                <img src="~/images/missed.jpg" alt="Featured News">
-                <p class="image-credit">Alexis Huguet/AFP/Getty Images</p>
-                <h3 class="news-title">Fighting in Africa’s mineral-rich DRC killed over 3,000 in less than 2 weeks. Here’s how your phone plays a part</h3>
-            </div>
+            @if (Model.Count > 13)
+            {
 
-            <!-- Sidebar News List -->
+                <div class="featured-news">
+                    <img src="@(Model[13].UrlToImage ?? "/images/missed.jpg")"
+                         alt="Featured News" onerror="this.src='/images/missed.jpg'">
+                    <h3 class="news-title">
+                        <a href="@Url.Action("TrackArticleClick", "Home", new {
+                        userId = ViewBag.UserId,
+
+                        articleUrl = Model[13].Url
+                    })" target="_blank">
+                            @Model[13].Title
+                        </a>
+                    </h3>
+                </div>
+            }
+
             <div class="news-sidebar">
                 <ul class="news-list">
-                    <li><a href="#">Who is Friedrich Merz, Merkel’s rival and German election frontrunner?</a></li>
-                    <li><a href="#">As Georgia slides into authoritarianism, protesters vow to keep fighting Russian pivot</a></li>
-                    <li><a href="#">Suspect in Brazil Christmas cake poisonings found dead</a></li>
-                    <li><a href="#">Vance turns on European allies in blistering speech that downplayed threats from Russia and China</a></li>
-                    <li><a href="#">The secret to great isn’t really a secret. It’s asking the right question, 81-year-old professor says</a></li>
-                    <li><a href="#">How much coffee is too much, according to a doctor</a></li>
-                    <li><a href="#">China hopes new fleet of ‘silver trains’ will encourage its elderly to travel, and spend, more</a></li>
-                    <li><a href="#">No doctors for sick children. This is the reality of Trump’s aid freeze in remote northern Thailand</a></li>
-                    <li><a href="#">As Georgia slides into authoritarianism, protesters vow to keep fighting Russian pivot</a></li>
-                    <li><a href="#">Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</a></li>
+                    @for (int i = 14; i < 24 && i < Model.Count; i++)
+                    {
+                        <li>
 
+                            <a href="@Url.Action("TrackArticleClick", "Home", new {
+                        userId = ViewBag.UserId,
+
+                        articleUrl = Model[i].Url
+                    })" target="_blank">
+                                @Model[i].Title
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
     </section>
 
-
-
-
-
-
-
     <section class="grid-news">
         <div class="img-news">
-            <div class="side-news">
-                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
-                <img src="~/images/ai (1).jpg" alt="Milei">
-                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-            </div>
-            <div class="side-news">
-                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
-                <img src="~/images/ai (2).jpg" alt="Milei">
-                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-            </div>
-            <div class="side-news">
-                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
-                <img src="~/images/ai (3).jpg" alt="Milei">
-                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-            </div>
-            <div class="side-news">
-                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
-                <img src="~/images/ai (4).jpg" alt="Milei">
-                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-            </div>
+            @for (int i = 24; i < Model.Count; i++)
+            {
 
+                <div class="side-news">
+                    <h2>
+                        <a href="@Url.Action("TrackArticleClick", "Home", new {
+                        userId = ViewBag.UserId,
 
-            <div class="side-news">
-                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
-                <img src="~/images/ai (5).jpg" alt="Milei">
-                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-            </div>
-            <div class="side-news">
-                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
-                <img src="~/images/ai (6).jpg" alt="Milei">
-                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-            </div>
-            <div class="side-news">
-                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
-                <img src="~/images/ai (7).jpg" alt="Milei">
-                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-            </div>
-            <div class="side-news">
-                <h2>Argentina's President Milei denies crypto fraud allegations</h2>
-                <img src="~/images/ai (8).jpg" alt="Milei">
-                <p>Javier Milei says he was acting in "good faith" when he posted about a crypto currency which collapsed.</p>
-            </div>
+                        articleUrl = Model[i].Url
+                    })" target="_blank">
+                            @Model[i].Title
+                        </a>
+                    </h2>
+                    <img src="@(Model[i].UrlToImage ?? "/images/ai (1).jpg")"
+                         alt="News Image" onerror="this.src='/images/ai (1).jpg'">
+                    <p>@Model[i].Description</p>
+                </div>
+            }
         </div>
     </section>
 
-
-
-
-
-
-
-
-
-
-    <h1 class="game-h1">
-        Play Games:
-    </h1>
+    <!-- Game section -->
+    <h1 class="game-h1">Play Games:</h1>
     <section class="game-section">
-
-
-
         <div id="canvas">
 
             <div class="restart">
@@ -352,26 +446,6 @@
         </div>
 
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <div class="must-watch-section">
         <div class="section-header">
@@ -553,29 +627,24 @@
             initGame();
         });
 
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (!this.href || this.href === '#') {
+                        e.preventDefault();
+                        console.log('Invalid link');
+                    }
+                });
+            });
+        });
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <footer>
-        <div class="container">
-            <p>&copy; @DateTime.Now.Year The Parody Journal. All rights reserved.</p>
-        </div>
-    </footer>
-
 </body>
 </html>
+<script>
+    function confirmLogout() {
+        if (confirm("Are you sure you want to log out?")) {
+            window.location.href = "@Url.Action("Logout", "Account")";
+        }
+    }
+</script>
